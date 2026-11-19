@@ -1,33 +1,41 @@
-### Hi, I'm Thiago 👋
+### Thiago Garofalo · AI Engineer · Forward Deployed
 
-I build AI systems for real businesses, starting with my own. Executive director at Acoplin, a Brazilian industrial manufacturer, and production engineer, with a postgraduate degree in progress in **Cognitive Systems with AI Agents**.
+AI engineer who puts systems into production and answers for the business result. Before the code came 25 years running industrial B2B companies, and that is where the problems I solve with AI come from: the side of the person who decides.
 
-Everything below runs in production for the companies I manage, with real users and real money on the other side: B2B prospecting agents, an ERP that replaced a lost one, tax engines that always cite the law, and WhatsApp agents that answer from the product manual.
+**Claude API · MCP · RAG · evals in production · TypeScript · Python**
 
-**Portfolio and case studies:** [garofalodeveloper.com](https://garofalodeveloper.com/en/) · [versão em português](https://garofalodeveloper.com)
+[Portfolio and case studies](https://garofalodeveloper.com/en/) · [LinkedIn](https://www.linkedin.com/in/thiago-garofalo-792a2653/) · [versão em português](https://garofalodeveloper.com)
 
-#### Open-source work
+#### What I have built and run today, from code to infrastructure
 
-| Project | What it does | Stack |
-|---|---|---|
-| [**agente-emporio-musica**](https://github.com/thiagogardev/agente-emporio-musica) | Customer-service agent for a music store: persona, policy manual in context, function calling over the store data, identity check before showing orders (LGPD). 34 tests | Python, Claude API |
-| [**agentes-rede-streaming**](https://github.com/thiagogardev/agentes-rede-streaming) | Architecture of six AI agents that forecast demand peaks on a streaming network and prepare capacity before them. Quantile forecasting, optimization, RAG and GraphRAG, human approval by stages | LangGraph, Spark, Databricks |
-| [**icms-st-dados**](https://github.com/thiagogardev/icms-st-dados) | Brazil's ICMS tax-substitution rules as open data, with the validity of each wording: national list, interstate protocols, state MVAs, TIPI and TEC. 79 tests | Python, httpx, lxml, pdfplumber |
-| [**monofasico-br**](https://github.com/thiagogardev/monofasico-br) | Decides whether a product is single-phase PIS/COFINS by NCM, always with the law and article, and estimates what a Simples Nacional company overpaid in 60 months | TypeScript, Node.js |
-| [**custo-importacao-br**](https://github.com/thiagogardev/custo-importacao-br) | Landed cost of importing 1 kg of any of 8,782 NCMs and the domestic price ceiling, using only official open data (Comex Stat, TEC, TIPI, PTAX) | TypeScript, Node.js |
-
-#### In production (private code, public case studies)
-
-- **[Genesis](https://garofalodeveloper.com/en/cases/genesis.html)**: B2B prospecting agents that collect public sources, enrich and rank companies and draft the commercial approach with Claude. Three instances in production.
-- **[Escrituro](https://garofalodeveloper.com/en/cases/escrituro.html)**: accounting-firm system from bookkeeping to SPED and payroll, with AI under pseudonymization.
-- **[Clinalta](https://garofalodeveloper.com/en/cases/clinalta.html)**: clinic management with an immutable medical record (SHA-256 hash chain).
-- **[WhatsApp agents](https://garofalodeveloper.com/en/cases/central-atendimento.html)**: one official number for three products, AI that answers only from the manual, SLA tracking.
+- **[WhatsApp support hub](https://garofalodeveloper.com/en/cases/central-atendimento.html)**: one number for three SaaS products. Claude answers only from the Help Center (201 articles), declines what is out of scope and hands off to a human with a ticket and a watched deadline. Cost per question tracked on the dashboard.
+- **[Sales bot for Acoplin](https://garofalodeveloper.com/en/cases/robo-acoplin.html)**: qualifies leads from ads, checks the company tax ID with the Federal Revenue and hands the order to a salesperson. No LLM, by choice: a closed flow covered by 28 automated tests. In the first 3 days, 47% of conversations became orders.
+- **[Genesis](https://garofalodeveloper.com/en/cases/genesis.html)**: B2B sales intelligence that cross-references public data (procurement and mining registries), ranks leads with an LLM and is evaluated with Precision@K.
+- **[Escrituro](https://garofalodeveloper.com/en/cases/escrituro.html) and [Clinalta](https://garofalodeveloper.com/en/cases/clinalta.html)**, SaaS products of Asset Tecnologia, my software company. Escrituro serves accounting firms, with e-invoice capture and Simples Nacional tax calculation integrated with the federal Serpro API. Clinalta runs medical clinics, with ICD-10 and an audit log of every access to patient records.
+- **In-house ERP** that replaced SAP Business One: quotes with ICMS ST tax calculation, e-invoices, finance, purchasing and inventory, used every day by the team.
+- **[Tax legislation monitor](https://garofalodeveloper.com/en/cases/icms-st.html)** in Python: collects 37 official sources and alerts when a rule changes.
 - **[Infrastructure](https://garofalodeveloper.com/en/cases/infraestrutura.html)**: from a ransomware attack to three clouds in five days, with hourly immutable backups and tested restores.
+
+#### Open source
+
+| Repository | What it does | Stack |
+|---|---|---|
+| [**agente-emporio-musica**](https://github.com/thiagogardev/agente-emporio-musica) | Customer service agent with a hand-written tool-calling loop: policy manual in context, five tools over the store data, identity check before showing an order. 34 tests that run without calling the model | Python, Claude API |
+| [**agentes-rede-streaming**](https://github.com/thiagogardev/agentes-rede-streaming) | Architecture of six agents that forecast demand peaks on a streaming network and prepare capacity before them: quantile forecasting, optimization, RAG and GraphRAG, human approval by stages | LangGraph, Spark, Databricks |
+| [**icms-st-dados**](https://github.com/thiagogardev/icms-st-dados) | Brazil's ICMS tax-substitution rules as open data, with the validity of each wording and the SHA-256 of every source read. 79 tests in CI | Python |
+| [**monofasico-br**](https://github.com/thiagogardev/monofasico-br) | Decides whether a product is single-phase PIS/COFINS, always citing the law and article; "to be confirmed" when the invoice cannot prove a condition | TypeScript |
+| [**custo-importacao-br**](https://github.com/thiagogardev/custo-importacao-br) | Landed cost of importing 1 kg of any of 8,782 NCMs and the domestic price ceiling, only from official open data | TypeScript |
+
+#### How I work
+
+- **I measure before I trust:** regression tests that run without calling the model, Precision@K and cost per call.
+- **Critical rules live in code**, not only in the prompt. And not every problem needs an LLM.
+- **I code every day with Claude Code**, using my own skills and subagents, and I review every line that ships.
 
 #### Stack
 
-TypeScript · Next.js · React · Python · PostgreSQL · Drizzle · Docker · Caddy · Claude API · RAG · MCP · GitHub Actions · Oracle Cloud · AWS
+TypeScript · Next.js · Node.js · Python · Claude API · MCP · RAG with pgvector · PostgreSQL · Docker · Oracle Cloud · AWS · GitHub Actions
 
-#### Contact
+#### Background
 
-[LinkedIn](https://www.linkedin.com/in/thiago-garofalo-792a2653/) · [garofalodeveloper.com](https://garofalodeveloper.com/en/)
+B.Eng. in Production Engineering, holder of two patents on quick couplings with safety locks. Postgraduate program in Cognitive Systems with AI Agents in progress. Open to remote roles as AI Engineer or Forward Deployed Engineer.
